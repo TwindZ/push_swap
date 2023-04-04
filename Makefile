@@ -6,15 +6,14 @@
 #    By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 10:27:08 by emlamoth          #+#    #+#              #
-#    Updated: 2023/04/04 16:16:57 by emlamoth         ###   ########.fr        #
+#    Updated: 2023/04/04 16:54:14 by emlamoth         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS =	pushswap.c \
-		pushswap_util.c \
 
 LIBFT_DIR = ./srcs/libft/
-LIBF = ./srcs/libft/libft.a
+LIBFT = ./srcs/libft/libft.a
 SRCS_DIR = ./srcs/
 OBJS_DIR = ./objs/
 OBJS = $(SRCS:%.c=%.o)
