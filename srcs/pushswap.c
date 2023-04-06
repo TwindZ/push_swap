@@ -6,34 +6,123 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:27:10 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/04 17:45:28 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/06 18:13:56 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	ft_stack_a(char **data)
+void	ft_free_stack(t_stack *stack)
 {
-	void 	*head;
-	t_list 	*list;
-	int i;
-	
-	i = 0;
-	head = NULL;
-	while (data[i])
+	t_stack	*temp;
+
+	while (stack != NULL)
 	{
-		list = ft_lstnew((void *)(ft_atoi(data[i])));
-		list->next = head;
-		head = list;
-		i++;
+		temp = stack->next;
+		free(stack);
+		stack = temp;
 	}
+	stack = NULL;
+}
+
+t_stack	*ft_lstnew_int(int content)
+{
+	t_stack	*node;
+
+	node = malloc(sizeof(t_stack));
+	if (!node)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
+}
+
+void	ft_printlist(t_stack *list)
+{
 	while(list != NULL)
 	{
-		list = head;
-		ft_putnbr(list->content);
-		head = list->next;
+		ft_printf("list : %p \n", list);
+		ft_printf("list->content : %d \n", list->content);
+		ft_printf("list->next : %p \n", list->next);
+		list = list->next;
 	}
+}
+
+int	ft_only_number(char **arg)
+{
+	int i;
+	int j;
+
+	i = 1;
+	j = 0;
+	while(arg[i])
+	{
+		while(arg[i][j])
+		{
+			if(ft_isdigit(arg[i][j]) == 0)
+			{
+				ft_printf("Wrong input. Only number can be an argument.\n");
+				return (FALSE);
+			}
+			j++;
+		}
+		i++;
+		j = 0;	
+	}
+	return(TRUE);
+}
+
+int	ft_no_double(char **arg)
+{
+	int i;
+	int j;
+	int len;
+	int len2;
 	
+	i = 0;
+	j = i + 1;
+	while(arg[i])
+	{
+		while(arg[j])
+		{
+			len = ft_strlen(arg[i]);
+			len2 = ft_strlen(arg[j]);
+			if(len < len2)
+				len = len2;
+			if(ft_strncmp(arg[i], arg[j], len) == 0)
+				return(FALSE);
+			j++;
+		}
+		i++;
+		j = i + 1;
+	}
+	return(TRUE);
+}
+
+void	ft_stack(char **arg, int argc)
+{
+	t_stack	*stack;
+	t_stack *head;
+	int i;
+	
+	i = 1;
+	head = NULL;
+	stack = NULL ;
+	ft_printf("%d", ft_no_double(arg));
+	ft_printf("%d", ft_only_number(arg));
+	if(ft_only_number(arg) == TRUE && ft_no_double(arg) == TRUE)
+	{
+		while (argc > 1)
+		{
+			stack = ft_lstnew_int(ft_atoi(arg[i]));
+			stack->next = head;
+			head = stack;
+			i++;
+			argc--;
+		}
+	}	
+	ft_printlist(head);
+	ft_free_stack(stack);
 }
 
 int main(int argc, char **argv)
@@ -56,14 +145,8 @@ int main(int argc, char **argv)
 		arg = argv;
 	}
 	else
-		ft_putstr("\n\e[1;31mNothing to sort !\e[0m\n\n");
-	// while(arg[i])
-	// {	
-	// 	ft_putstr(arg[i]);
-	// 	write(1, "\n", 1);
-	// 	i++;
-	// }
-	ft_stack_a(arg);
+		return (-1);
+	ft_stack(arg, argc);
 	if(free_flag == 1)
 		ft_freeall(arg);
 }
