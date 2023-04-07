@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:27:13 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/06 18:12:37 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/07 14:29:44 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,32 @@
 
 # define TRUE 1
 # define FALSE 0
+# define ERRARG "Only number separated by spaces can be in argument.\n"
+# define ERRDUP "No duplication allow.\n"
+# define ERRINT "Off range of int detected\n"
+
+# include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
+# include "./libft/libft.h"
+# include <limits.h>
 
 typedef struct s_stack t_stack;
+typedef struct s_data t_data;
 
 typedef struct s_stack
 {
 	int		content;
 	t_stack	*next;
 }				t_stack;
-	
-# include <stdlib.h>
-# include <stdio.h>
-# include <unistd.h>
-# include "./libft/libft.h"
+
+typedef struct s_data
+{
+	t_stack	*stack;
+	t_stack *head;
+	char	**arg;
+	int		len;
+	int		free_flag;
+}				t_data;
 
 #endif

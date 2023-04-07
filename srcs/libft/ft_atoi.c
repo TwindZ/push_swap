@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:29:06 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/04 15:44:54 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/07 11:36:27 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 /*The ft_atoi() function converts the initial portion of the string
 pointed to by <str> to int.*/
-int	ft_atoi(const char *str)
+long int	ft_atoi(const char *str)
 {
 	int	i;
 	int	s;
-	int	num;
+	long int	num;
 
 	i = 0;
 	s = 1;
