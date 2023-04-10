@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emman <emman@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:27:10 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/07 15:57:53 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/10 15:13:43 by emman            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,10 @@ void	ft_printlist(t_stack *list)
 	}
 }
 
-int	ft_only_number(char **arg)// trop long
+int	ft_only_number(char **arg, int i)
 {
-	int i;
 	int j;
 
-	i = 0;
 	j = 0;
 	while(arg[i])
 	{
@@ -86,14 +84,12 @@ int	ft_empty(char **arg)
 	return (TRUE);
 }
 
-int	ft_no_double(char **arg) // faire recherche en liste chainé plus facile en int
+int	ft_no_double(char **arg, int i)//peut etre verifier pour le -0 ici
 {
-	int i;
 	int j;
 	int len;
 	int len2;
 	
-	i = 0;
 	j = i + 1;
 	while(arg[i])
 	{
@@ -131,25 +127,27 @@ int	ft_sorted(t_stack *stack)
 void	ft_stack(t_data *data, int i)
 {
 	long int nb;
-	
-	ft_printf("%d", ft_no_double(data->arg));
-	ft_printf(" %d\n", ft_only_number(data->arg));
-	if(ft_only_number(data->arg + i) == TRUE && ft_no_double(data->arg + i) == TRUE && ft_empty(data->arg + i) == TRUE)
+	t_stack *temp;
+
+	temp = NULL;
+	ft_printf("no double %d\n", ft_no_double(data->arg, i));
+	ft_printf("only number %d\n", ft_only_number(data->arg, i));
+	if(ft_only_number(data->arg, i) == TRUE && ft_no_double(data->arg, i) == TRUE && ft_empty(data->arg + i) == TRUE)
 	{
 		while (data->arg[i])
 		{
 			nb = ft_atoi(data->arg[i]);
 			if(nb <= INT_MAX && nb >= INT_MIN)
 			{			
+				temp = data->stack;
 				data->stack = ft_lstnew_int(nb);
-				data->stack->next = data->head;
-				data->head = data->stack;
+				data->stack->next = temp;
 				i++;
 			}
 			else
 			{
 				ft_printf(ERRINT);
-				ft_free_stack(data->head);
+				ft_free_stack(data->stack);
 				exit(EXIT_FAILURE);
 			}
 		}
@@ -182,7 +180,6 @@ t_data	*ft_init(int argc, char **argv)
 	if(!data)
 	{
 		data = malloc(sizeof(t_data));
-		data->head = NULL;
 		data->stack = NULL;
 		data->arg = NULL;
 		ft_arg(argc, argv, data);
@@ -197,12 +194,13 @@ int main(int argc, char **argv)
 	t_data *data;
 	
 	data = ft_init(argc, argv);
-	if(data->head)
+	if(data->stack)
 	{
-		ft_sorted(data->head);
-		ft_printf("%d\n", ft_sorted(data->head));
+		ft_sorted(data->stack);
+		ft_printf("sorted %d\n", ft_sorted(data->stack));
 	}
+	
 	ft_printlist(data->stack);
-	ft_free_stack(data->head);
+	ft_free_stack(data->stack);
 	free(data);
 }

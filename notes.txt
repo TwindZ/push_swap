@@ -1,0 +1,8 @@
+valgrind --leak-check=full --show-leak-kinds=all
+
+-0 a gerer
+
+changer head pour temp dans la fonction qui en a de besoin
+
+changer stack pour stack_a pour avoir un stack_b
+
