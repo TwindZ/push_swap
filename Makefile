@@ -6,11 +6,13 @@
 #    By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 10:27:08 by emlamoth          #+#    #+#              #
-#    Updated: 2023/04/04 16:54:14 by emlamoth         ###   ########.fr        #
+#    Updated: 2023/04/11 16:19:01 by emlamoth         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS =	pushswap.c \
+		move.c	\
+		choosemove.c	\
 
 LIBFT_DIR = ./srcs/libft/
 LIBFT = ./srcs/libft/libft.a
@@ -19,7 +21,7 @@ OBJS_DIR = ./objs/
 OBJS = $(SRCS:%.c=%.o)
 OBJS := $(OBJS:$(SCRS_DIR)%=$(OBJS_DIR)%)
 
-NAME = pushswap
+NAME = push_swap
 
 CFLAGS = -Wall -Wextra -Werror
 
