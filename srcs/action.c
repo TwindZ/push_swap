@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move.c                                             :+:      :+:    :+:   */
+/*   action.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 15:10:32 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/11 16:41:15 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:57:53 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	ft_push_a(t_data *data)
 	data->stack_a = data->stack_b;
 	data->stack_b = temp;
 	ft_printf("pa\n");
-
 }
 
 t_stack	*ft_stackswap(t_stack *stack)
@@ -52,7 +51,6 @@ t_stack	*ft_stackswap(t_stack *stack)
 
 	return (stack);
 }
-
 
 t_stack	*ft_rotstack(t_stack *stack)
 {

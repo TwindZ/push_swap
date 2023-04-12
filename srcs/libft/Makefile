@@ -52,7 +52,7 @@ SRC =	ft_isalnum.c	\
 		ft_putnbr_hex.c		\
 		ft_freeall.c		\
 		
-OBJS_DIR = objs/
+OBJS_DIR = libft_objs/
 OBJS = $(SRC:%.c=%.o)
 OBJS := $(OBJS:%=$(OBJS_DIR)%)
 

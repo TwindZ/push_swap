@@ -1,10 +1,14 @@
 valgrind --leak-check=full --show-leak-kinds=all
 
--0 a gerer
+./push_swap_visualizer/build/bin/visualizer
 
-changer head pour temp dans la fonction qui en a de besoin
+-0 a gerer  // ok fait apres atoi
 
-changer stack pour stack_a pour avoir un stack_b
+changer head pour temp dans la fonction qui en a de besoin // fait pas de head
+
+changer stack pour stack_a pour avoir un stack_b // fait deux stack init dans data
+
+TOUT LES ACTION SON FAITES ET FONCTIONNEL
 
 • Le but du jeu est de trier les nombres de la pile a par ordre croissant. Pour ce
 faire, vous disposez des instructions suivantes :
@@ -39,4 +43,15 @@ la pile b. Le dernier élément devient le premier.
 
 rrr : rra et rrb en même temps.
 
+TOUT LES ACTION SON FAITES ET FONCTIONNEL
+
 ./push_swap_visualizer/build/bin/visualizer
+
+TO CHECK
+merge sort 
+quick sort
+
+-4-5
+
+semble avoir besoin d'etre lister du bon coter et non reverse
+peut etre besoin de faire lst add back sinon sorting focntionne avec mon print mais marche pas avec tester
