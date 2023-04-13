@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 16:29:05 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/12 18:53:23 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/13 09:49:48 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,6 @@ void	ft_arg(int argc, char **argv, t_data *data)
 	}
 }
 
-t_stack	*ft_lstnew_int(int content)
-{
-	t_stack	*stack;
-
-	stack = malloc(sizeof(t_stack));
-	if (!stack)
-		return (NULL);
-	stack->content = content;
-	stack->next = NULL;
-	stack->index = 0;
-	return (stack);
-}
-
 void	ft_stack(t_data *data, int i)
 {
 	long int nb;
@@ -70,11 +57,16 @@ void	ft_stack(t_data *data, int i)
 		while (data->arg[i])
 		{
 			nb = ft_atoi(data->arg[i]);
-			if(nb <= INT_MAX && nb >= INT_MIN)
+			if(data->stack_a == NULL && nb <= INT_MAX && nb >= INT_MIN)
+			{
+				data->stack_a = ft_lstnew_int(nb);
+				i++;
+			}
+			else if(nb <= INT_MAX && nb >= INT_MIN)
 			{			
 				temp = data->stack_a;
-				data->stack_a = ft_lstnew_int(nb);
-				data->stack_a->next = temp;
+				temp = ft_stacklast(temp);
+				temp->next = ft_lstnew_int(nb);
 				i++;
 			}
 			else
@@ -99,16 +91,12 @@ void	ft_index(t_data *data)
 		while(temp != NULL)
 		{
 			if(nb > temp->content && temp->index == 0)
-			{
 				nb = temp->content;
-			}
 			temp = temp->next;
 		}
 		temp = data->stack_a;
 		while(temp->content != nb)
-		{
 			temp = temp->next;
-		}
 		temp->index = i;
 		temp = data->stack_a;
 		nb = INT_MAX;

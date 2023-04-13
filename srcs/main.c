@@ -6,52 +6,46 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:27:10 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/12 18:44:03 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/13 17:23:34 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	ft_printlist(t_stack *list)
+void	ft_sort_3(t_data *data)
 {
-	while(list != NULL)
+	if(data->stack_a->index > data->stack_a->next->index 
+			&& data->stack_a->next->index > data->stack_a->next->next->index)
+		{
+			ft_rot_kind(data, 'a');
+			ft_swap_kind(data, 'a');
+		}
+	else if(data->stack_a->index > data->stack_a->next->index 
+			&& data->stack_a->index > data->stack_a->next->next->index)
+		ft_rot_kind(data, 'a');
+	else if(data->stack_a->index > data->stack_a->next->index)
+		ft_swap_kind(data, 'a');
+	else if (data->stack_a->index < data->stack_a->next->index 
+			&& data->stack_a->index > data->stack_a->next->next->index)
+		ft_rrot_kind(data, 'a');
+	else if (data->stack_a->index < data->stack_a->next->index 
+			&& data->stack_a->index < data->stack_a->next->next->index)
 	{
-		// ft_printf("\nlist :		%p \n", list);
-		// ft_printf("\nlist->index : %d \n", list->index);
-		// ft_printf("\nlist->content : %d \n\n", list->content);
-		// ft_printf("list->next :	%p \n		|\n", list->next);
-		ft_printf("%d\n", list->content);
-		list = list->next;
-		usleep(500000);
+		ft_swap_kind(data, 'a');
+		ft_rot_kind(data, 'a');
 	}
 }
 
-void	ft_sort_3(t_data *data)
+void	ft_sort_5(t_data *data)
 {
-		if((data->stack_a->index == 2) 
-				&& (data->stack_a->next->index == 3))
-		{
-		ft_swap_kind(data, 'a');
-		ft_rot_kind(data, 'a');
-		}
-		else if((data->stack_a->index == 1) 
-				&& (data->stack_a->next->index == 2))
-		{
-		ft_rot_kind(data, 'a');
-		ft_swap_kind(data, 'a');
-		}
-		else if((data->stack_a->index == 1) 
-				&& (data->stack_a->next->index == 3))
-		ft_rrot_kind(data, 'a');
-		else if((data->stack_a->index == 3) 
-				&& (data->stack_a->next->index == 1))
-		ft_swap_kind(data, 'a');
-		else if((data->stack_a->index == 1) 
-				&& (data->stack_a->next->index == 1))
-		ft_rot_kind(data, 'a');
+	while(ft_stacksize(data->stack_a) > 3)
+		ft_push_b(data);
+	ft_sort_3(data);
+	if(data->stack_b->index < data->stack_b->next->index)
+		ft_swap_kind(data, 'b');
+	
 
 }
-
 int main(int argc, char **argv)
 {
 	t_data *data;

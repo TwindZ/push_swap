@@ -6,7 +6,7 @@
 #    By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 10:27:08 by emlamoth          #+#    #+#              #
-#    Updated: 2023/04/12 16:54:16 by emlamoth         ###   ########.fr        #
+#    Updated: 2023/04/13 09:38:04 by emlamoth         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRCS =	main.c 			\
 		initialize.c	\
 		action.c		\
 		parsing.c		\
+		stack_util.c	\
 	
 LIBFT_DIR = ./srcs/libft/
 LIBFT = ./srcs/libft/libft.a

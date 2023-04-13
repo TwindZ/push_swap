@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:27:13 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/12 16:41:20 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/13 09:49:00 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 # define ERRDUP "No duplication allow.\n"
 # define ERRINT "Off range of int detected\n"
 
+# include "./libft/libft.h"
 # include <limits.h>
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "./libft/libft.h"
 
 typedef struct s_stack
 {
@@ -54,7 +54,9 @@ t_stack	*ft_lstnew_int(int content);
 t_stack	*ft_rotstack(t_stack *stack);
 t_stack *ft_rrotstack(t_stack *stack);
 t_stack	*ft_stackswap(t_stack *stack);
+t_stack	*ft_stacklast(t_stack *stack);
 
+void	ft_printlist(t_stack *list);
 void	ft_arg(int argc, char **argv, t_data *data);
 void	ft_free_stack(t_stack *stack);
 void	ft_index(t_data *data);

@@ -6,26 +6,11 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 15:20:43 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/12 18:09:03 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/13 09:25:19 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
-
-int	ft_stacksize(t_stack *stack)
-{
-	int	i;
-
-	i = 1;
-	if (!stack)
-		return (0);
-	while (stack->next != NULL)
-	{
-		stack = stack->next;
-		i++;
-	}
-	return (i);
-}
 
 void	ft_rot_kind(t_data *data, char set)
 {

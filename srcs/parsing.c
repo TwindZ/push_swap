@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:57:08 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/12 18:44:27 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/13 10:10:22 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_sorted(t_stack *stack)
 {
 	while(stack->next != NULL)
 	{
-		if(stack->content < stack->next->content)
+		if(stack->content > stack->next->content)
 			return (FALSE);
 		stack = stack->next;
 	}

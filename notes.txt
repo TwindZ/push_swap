@@ -54,4 +54,9 @@ quick sort
 -4-5
 
 semble avoir besoin d'etre lister du bon coter et non reverse
-peut etre besoin de faire lst add back sinon sorting focntionne avec mon print mais marche pas avec tester
+peut etre besoin de faire lst add back sinon sorting focntionne 
+avec mon print mais marche pas avec tester // fait fonctionne dans le bon sens.
+
+tester avec juste un chiffre et deux chifres
+
+pour ft_sort_3 changer 'a' pour un variable pour utiliser sur stack a et b
