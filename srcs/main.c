@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emman <emman@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:27:10 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/13 17:23:34 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/16 19:23:26 by emman            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int main(int argc, char **argv)
 		else
 		{
 			ft_pushswap_free(1);
+			
 		}
 		ft_pushswap_free(0);
 	}
