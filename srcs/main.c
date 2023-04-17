@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emman <emman@student.42.fr>                +#+  +:+       +#+        */
+/*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:27:10 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/16 22:10:30 by emman            ###   ########.fr       */
+/*   Updated: 2023/04/17 17:40:04 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,67 @@ void	ft_sort_5(t_data *data)
 	ft_push_a(data);
 }
 
+void	ft_simple_sort(t_data *data)
+{
+	while(data->stack_b != NULL)
+	{
+		if(data->stack_b->content == ft_find_smallest(data, 'b'))
+			ft_push_a(data);
+		else
+			ft_rot_kind(data, 'b');
+	}
+}
+
+void	ft_radix(t_data *data)
+{
+	int div;
+	int mod;
+	int i;
+	
+	div = 1;
+	mod = 0;
+	i = ft_stacksize(data->stack_a);
+	// ft_printf("int = %d", i);
+		while(data->stack_a != NULL)
+		{
+			while(i)
+			{
+				if((data->stack_a->content / div) % 10 == mod)
+					ft_push_b(data);
+				else if(data->stack_a != NULL)
+					ft_rot_kind(data, 'a');
+				i--;
+			}
+			i = ft_stacksize(data->stack_a);
+			// ft_printf("int = %d", i);
+
+			if(mod < 9)
+				mod++;
+			else
+				mod = 0;
+		}
+		div *= 10;
+		mod = 9;
+		while(data->stack_b != NULL)
+		{
+			i = ft_stacksize(data->stack_b);
+			while(i)
+			{
+				if((data->stack_b->content / div) % 10 == mod)
+					ft_push_a(data);
+				else if(data->stack_b != NULL)
+					ft_rot_kind(data, 'b');
+				i--;
+			}
+			if(mod > 0)
+				mod--;
+			else
+				mod = 9;
+		}
+		if(data->stack_b != NULL)
+			ft_simple_sort(data);
+}
+
 int main(int argc, char **argv)
 {
 	t_data *data;
@@ -110,31 +171,36 @@ int main(int argc, char **argv)
 	if(argc > 1)
 	{
 		data = ft_init(argc, argv);
-		if(ft_no_double(data) == TRUE && data->stack_a != NULL 
+		if(/*ft_no_double(data) == TRUE && */data->stack_a != NULL 
 				&& ft_sorted(data->stack_a) == FALSE)
 		{
 			ft_index(data);
-			ft_printf("LIST A\n");
-			ft_printlist(data->stack_a);
-			ft_printf("\n");
-			ft_printf("LIST B\n");
-			ft_printlist(data->stack_b);
-			ft_printf("\n");
 			
-			if(ft_stacksize(data->stack_a) == 3)
-				ft_sort_3(data, 'a');
-			else if (ft_stacksize(data->stack_a) == 5)
-				ft_sort_5(data);
+			// ft_printf("LIST A\n");
+			// ft_printlist(data->stack_a);
+			// ft_printf("\n");
+			// ft_printf("LIST B\n");
+			// ft_printlist(data->stack_b);
+			// ft_printf("\n");
 			
-			ft_printf("LIST A\n");
-			ft_printlist(data->stack_a);
-			ft_printf("\n");
-			ft_printf("LIST B\n");
-			ft_printlist(data->stack_b);
-			ft_printf("\n");
+			// if(ft_stacksize(data->stack_a) == 3)
+			// 	ft_sort_3(data, 'a');
+			// else if (ft_stacksize(data->stack_a) == 5)
+			// 	ft_sort_5(data);
+			// else
+				// ft_bubble_sort(data);
+				// ft_simple_sort(data); /*50 736*/
+				ft_radix(data); /*50 670*/
+			
+			// ft_printf("LIST A\n");
+			// ft_printlist(data->stack_a);
+			// ft_printf("\n");
+			// ft_printf("LIST B\n");
+			// ft_printlist(data->stack_b);
+			// ft_printf("\n");
 
-			ft_printf("%d\n", ft_find_biggest(data, 'a'));
-			ft_printf("%d\n", ft_find_smallest(data, 'a'));
+			// ft_printf("%d\n", ft_find_biggest(data, 'a'));
+			// ft_printf("%d\n", ft_find_smallest(data, 'a'));
 
 		}
 		else

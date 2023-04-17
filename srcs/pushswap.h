@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:27:13 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/13 09:49:00 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:54:59 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ typedef struct s_data
 	int		stacksize;
 	char	**arg;
 	int		free_flag;
+	int		a_len;
+	int		b_len;
 }				t_data;
 
 int	ft_empty(char **arg);

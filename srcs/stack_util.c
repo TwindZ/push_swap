@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:21:06 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/13 09:48:18 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/17 16:55:55 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_printlist(t_stack *list)
 		// ft_printf("list->next :	%p \n		|\n", list->next);
 		ft_printf("%d\n", list->content);
 		list = list->next;
-		usleep(500000);
+		usleep(50000);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 16:29:05 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/13 09:49:48 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:55:35 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ t_data	*ft_init(int argc, char **argv)
 		data->arg = NULL;
 		data->free_flag = 0;
 		data->stacksize = 0;
+		data->a_len = 0;
+		data->b_len = 0;
 		ft_arg(argc, argv, data);
 		data->stacksize = ft_stacksize(data->stack_a);
 	}

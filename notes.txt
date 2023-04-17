@@ -60,3 +60,6 @@ avec mon print mais marche pas avec tester // fait fonctionne dans le bon sens.
 tester avec juste un chiffre et deux chifres
 
 pour ft_sort_3 changer 'a' pour un variable pour utiliser sur stack a et b
+
+essayer radix
+trouver comment comparer pour les uniter dizaine centaire en int
