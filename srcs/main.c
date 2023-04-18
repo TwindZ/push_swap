@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:27:10 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/17 17:40:04 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/18 17:56:05 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,16 +105,33 @@ void	ft_sort_5(t_data *data)
 
 void	ft_simple_sort(t_data *data)
 {
+	while(data->stack_a != NULL)
+	{
+		if(data->stack_a->index == ft_find_smallest(data, 'a'))
+			ft_push_b(data);
+		else
+			ft_rot_kind(data, 'a');
+	}
 	while(data->stack_b != NULL)
 	{
-		if(data->stack_b->content == ft_find_smallest(data, 'b'))
-			ft_push_a(data);
-		else
-			ft_rot_kind(data, 'b');
+		ft_push_a(data);
 	}
 }
 
-void	ft_radix(t_data *data)
+void	ft_bubble(t_data *data)
+{
+	while(ft_sorted(data->stack_a) == FALSE)
+	{
+		if(data->stack_a->index == ft_find_biggest(data, 'a'))
+			ft_rot_kind(data, 'a');
+		else if(data->stack_a->index > data->stack_a->next->index)
+			ft_swap_kind(data, 'a');
+		else 
+			ft_rot_kind(data, 'a');
+	}
+}
+
+void	ft_radix(t_data *data, int base)
 {
 	int div;
 	int mod;
@@ -124,32 +141,35 @@ void	ft_radix(t_data *data)
 	mod = 0;
 	i = ft_stacksize(data->stack_a);
 	// ft_printf("int = %d", i);
+	while(ft_sorted(data->stack_a) == FALSE)
+	{
 		while(data->stack_a != NULL)
 		{
+			i = ft_stacksize(data->stack_a);
 			while(i)
 			{
-				if((data->stack_a->content / div) % 10 == mod)
+				if((data->stack_a->index / div) % base == mod)
 					ft_push_b(data);
 				else if(data->stack_a != NULL)
 					ft_rot_kind(data, 'a');
 				i--;
 			}
-			i = ft_stacksize(data->stack_a);
-			// ft_printf("int = %d", i);
-
-			if(mod < 9)
-				mod++;
-			else
-				mod = 0;
+			if (mod < base - 1)
+			mod++;
 		}
-		div *= 10;
-		mod = 9;
+		div *= base;
+		if(ft_inverted_sorted(data->stack_b) == TRUE)
+		{
+			while(data->stack_b != NULL)
+				ft_push_a(data);
+		}
 		while(data->stack_b != NULL)
 		{
+
 			i = ft_stacksize(data->stack_b);
 			while(i)
 			{
-				if((data->stack_b->content / div) % 10 == mod)
+				if((data->stack_b->index / div) % base == mod)
 					ft_push_a(data);
 				else if(data->stack_b != NULL)
 					ft_rot_kind(data, 'b');
@@ -157,11 +177,34 @@ void	ft_radix(t_data *data)
 			}
 			if(mod > 0)
 				mod--;
-			else
-				mod = 9;
 		}
-		if(data->stack_b != NULL)
-			ft_simple_sort(data);
+		div *= base;
+	}
+}
+
+void	ft_lower_cost(t_data *data)
+{
+	int i;
+	int bestcost;
+
+	
+	i = 2;
+	bestcost = INT_MAX;
+	while(i != ft_stacksize(data->stack_a) / 2)
+	{
+		data->cost = 0;
+		ft_radix(data, i);
+		if(bestcost > data->cost)
+		{
+			bestcost = data->cost;
+			data->base = i;
+		}
+		data->cost = bestcost;
+		data->base = data->base;
+		i++;
+		ft_rot_kind(data, 'a');
+	}
+	data->write_flag = 0;
 }
 
 int main(int argc, char **argv)
@@ -183,14 +226,25 @@ int main(int argc, char **argv)
 			// ft_printlist(data->stack_b);
 			// ft_printf("\n");
 			
-			// if(ft_stacksize(data->stack_a) == 3)
-			// 	ft_sort_3(data, 'a');
-			// else if (ft_stacksize(data->stack_a) == 5)
-			// 	ft_sort_5(data);
-			// else
-				// ft_bubble_sort(data);
-				// ft_simple_sort(data); /*50 736*/
-				ft_radix(data); /*50 670*/
+			if(ft_stacksize(data->stack_a) == 3)
+				ft_sort_3(data, 'a');
+			else if (ft_stacksize(data->stack_a) <= 5 && ft_stacksize(data->stack_a) >= 4)
+				ft_bubble(data);
+			else if (ft_stacksize(data->stack_a) > 5 && ft_stacksize(data->stack_a) <= 10 )
+				ft_simple_sort(data); /*50 736*/
+			else 
+				ft_radix(data, 4); /*50 670*/
+				
+				
+				
+				
+				
+				// ft_lower_cost(data);
+				// ft_printf("%d\n", data->cost);
+				// ft_printf("%d\n", data->base);
+				// ft_radix(data, 5);
+				// ft_printf("%d\n", data->cost);
+				// ft_printf("%d\n", data->base);
 			
 			// ft_printf("LIST A\n");
 			// ft_printlist(data->stack_a);

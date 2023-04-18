@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 16:29:05 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/17 15:55:35 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/18 16:46:47 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,26 +23,32 @@ t_data	*ft_init(int argc, char **argv)
 		data->stack_b = NULL;
 		data->arg = NULL;
 		data->free_flag = 0;
+		data->write_flag = 1;
 		data->stacksize = 0;
 		data->a_len = 0;
 		data->b_len = 0;
-		ft_arg(argc, argv, data);
+		data->cost = 0;
+		data->base = 2;
+		data->argc = argc;
+		data->argv = argv;
+		ft_arg(data);
 		data->stacksize = ft_stacksize(data->stack_a);
+		
 	}
 	return(data);
 }
 
-void	ft_arg(int argc, char **argv, t_data *data)
+void	ft_arg(t_data *data)
 {
-	if(argc == 2)
+	if(data->argc == 2)
 	{
-		data->arg = ft_split(argv[1], ' ');
+		data->arg = ft_split(data->argv[1], ' ');
 		data->free_flag = 1;
 		ft_stack(data, 0);
 	}
 	else
 	{
-		data->arg = argv;
+		data->arg = data->argv;
 		ft_stack(data, 1);
 	}
 }
