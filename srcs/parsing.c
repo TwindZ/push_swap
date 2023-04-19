@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:57:08 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/18 13:27:49 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/19 10:25:08 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,30 @@
 
 int	ft_sorted(t_stack *stack)
 {
-	while(stack->next != NULL)
+	t_stack *temp;
+
+	temp = stack;
+	while(temp->next != NULL)
 	{
-		if(stack->index + 1 != stack->next->index)
+		if(temp->index + 1 != temp->next->index)
 			return (FALSE);
-		stack = stack->next;
+		temp = temp->next;
 	}
 	return (TRUE);
 }
 
 int	ft_inverted_sorted(t_stack *stack)
 {
-	while(stack->next != NULL)
+	t_stack *temp;
+
+	temp = stack;
+	while(temp->next != NULL)
 	{
-		if(stack->index - 1 != stack->next->index)
+		if(temp->index - 1 != temp->next->index)
 			return (FALSE);
-		stack = stack->next;
+		temp = temp->next;
 	}
-	return (TRUE);
+	return (TRUE);;
 }
 
 int	ft_no_double(t_data *data)

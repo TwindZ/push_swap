@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 16:29:05 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/18 16:46:47 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:57:29 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_data	*ft_init(int argc, char **argv)
 		data->a_len = 0;
 		data->b_len = 0;
 		data->cost = 0;
-		data->base = 2;
+		data->base = 3;
 		data->argc = argc;
 		data->argv = argv;
 		ft_arg(data);
@@ -64,13 +64,15 @@ void	ft_stack(t_data *data, int i)
 	{
 		while (data->arg[i])
 		{
+			
 			nb = ft_atoi(data->arg[i]);
-			if(data->stack_a == NULL && nb <= INT_MAX && nb >= INT_MIN)
+			if(data->stack_a == NULL && nb <= INT_MAX && nb >= INT_MIN 
+					&& ft_strlen(data->arg[i]) < 15)
 			{
 				data->stack_a = ft_lstnew_int(nb);
 				i++;
 			}
-			else if(nb <= INT_MAX && nb >= INT_MIN)
+			else if(nb <= INT_MAX && nb >= INT_MIN && ft_strlen(data->arg[i]) < 15)
 			{			
 				temp = data->stack_a;
 				temp = ft_stacklast(temp);

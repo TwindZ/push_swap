@@ -6,11 +6,25 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:21:06 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/17 16:55:55 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:00:56 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+
+void	ft_printlist(t_stack *list) // pas besoin pour le programme final a enlevé //
+{
+	while(list != NULL)
+	{
+		ft_printf("\nlist :		%p \n", list);
+		ft_printf("\nlist->index : %d \n", list->index);
+		ft_printf("\nlist->content : %d \n\n", list->content);
+		ft_printf("list->next :	%p \n		|\n", list->next);
+		ft_printf("%d\n", list->content);
+		list = list->next;
+		usleep(50000);
+	}
+}
 
 int	ft_stacksize(t_stack *stack)
 {
@@ -27,18 +41,42 @@ int	ft_stacksize(t_stack *stack)
 	return (i);
 }
 
-void	ft_printlist(t_stack *list)
+int	ft_find_biggest(t_data *data, char set)
 {
-	while(list != NULL)
+	int biggest;
+	t_stack *temp;
+
+	biggest = INT_MIN;
+	if(set == 'a')
+		temp = data->stack_a;
+	else
+		temp = data->stack_b;
+	while(temp != NULL)
 	{
-		// ft_printf("\nlist :		%p \n", list);
-		// ft_printf("\nlist->index : %d \n", list->index);
-		// ft_printf("\nlist->content : %d \n\n", list->content);
-		// ft_printf("list->next :	%p \n		|\n", list->next);
-		ft_printf("%d\n", list->content);
-		list = list->next;
-		usleep(50000);
+		if(biggest < temp->index)
+			biggest = temp->index;
+		temp = temp->next;
 	}
+	return (biggest);
+}
+
+int ft_find_smallest(t_data *data, char set)
+{
+	int smallest;
+	t_stack *temp;
+
+	smallest = INT_MAX;
+	if(set == 'a')
+		temp = data->stack_a;
+	else
+		temp = data->stack_b;
+	while(temp != NULL)
+	{
+		if(smallest > temp->index)
+			smallest = temp->index;
+		temp = temp->next;
+	}
+	return (smallest);
 }
 
 t_stack	*ft_lstnew_int(int content)

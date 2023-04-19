@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:27:13 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/18 16:53:54 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:17:01 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int	ft_no_double(t_data *data);
 int	ft_stacksize(t_stack *stack);
 int	ft_sorted(t_stack *stack);
 int	ft_inverted_sorted(t_stack *stack);
+int ft_find_smallest(t_data *data, char set);
+int	ft_find_biggest(t_data *data, char set);
 
 t_data	*ft_init(int argc, char **argv);
 
@@ -76,5 +78,13 @@ void	ft_rrot_kind(t_data *data, char set);
 void	ft_stack(t_data *data, int i);
 void	ft_swap_kind(t_data *data, char set);
 void	ft_write_or_count(t_data *data, char *movename);
+void	ft_simulation(t_data *data);
+void	ft_radix(t_data *data, int base);
+void	ft_sort_3(t_data *data);
+void	ft_sort_4(t_data *data);
+void	ft_sort_5(t_data *data);
+void	ft_simple_sort(t_data *data);
+void	ft_bubble(t_data *data);
+void	ft_radix(t_data *data, int base);
 
 #endif
