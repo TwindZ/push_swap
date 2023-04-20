@@ -6,7 +6,7 @@
 #    By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 10:27:08 by emlamoth          #+#    #+#              #
-#    Updated: 2023/04/19 17:13:52 by emlamoth         ###   ########.fr        #
+#    Updated: 2023/04/20 16:06:44 by emlamoth         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ $(OBJS_DIR)%.o:$(SRCS_DIR)%.c
 $(NAME): $(OBJS)
 	@$(MAKE) -C $(LIBFT_DIR)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
-	@echo "${GREEN}COMPILED PUSHSWAP${NC}"
+	@echo "${GREEN}PUSHSWAP COMPILED${NC}"
 
 clean:
 	@$(MAKE) clean -C ./srcs/libft

@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 16:36:38 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/19 15:21:33 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/20 16:27:20 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 void	ft_pushswap_free(int i)
 {
-	t_data *data;
+	t_data	*data;
 
 	data = ft_init(0, NULL);
 	ft_free_stack(data->stack_a);
 	ft_free_stack(data->stack_b);
-	if(data->free_flag == 1)
+	if (data->free_flag == 1)
 		ft_freeall(data->arg);
 	free(data);
-	if(i == 1)
+	if (i == 1)
 	{
-		ft_putendl_fd("Error from psfree", 2);
+		ft_putendl_fd("Error", 2);
 		exit(EXIT_FAILURE);
 	}
 }

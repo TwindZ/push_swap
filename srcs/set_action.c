@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 15:20:43 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/18 12:44:09 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/20 17:21:06 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 
 void	ft_write_or_count(t_data *data, char *movename)
 {
-		if(data->write_flag == 1)
-			ft_printf("%s\n", movename);
-		else
-			data->cost++;
+	if (data->write_flag == 1)
+		ft_printf("%s\n", movename);
+	else
+		data->cost++;
 }
 
-void	ft_rot_kind(t_data *data, char set)
+void	ft_rot(t_data *data, char set)
 {
-	
-	if(set == 'a')
+	if (set == 'a')
 	{
 		data->stack_a = ft_rotstack(data->stack_a);
 		ft_write_or_count(data, "ra");
@@ -41,10 +40,9 @@ void	ft_rot_kind(t_data *data, char set)
 	}
 }
 
-void	ft_rrot_kind(t_data *data, char set)
+void	ft_rrot(t_data *data, char set)
 {
-	
-	if(set == 'a')
+	if (set == 'a')
 	{
 		data->stack_a = ft_rrotstack(data->stack_a);
 		ft_write_or_count(data, "rra");
@@ -53,7 +51,6 @@ void	ft_rrot_kind(t_data *data, char set)
 	{
 		data->stack_b = ft_rrotstack(data->stack_b);
 		ft_write_or_count(data, "rrb");
-		
 	}
 	else if (set == 'r')
 	{
@@ -63,9 +60,9 @@ void	ft_rrot_kind(t_data *data, char set)
 	}
 }
 
-void	ft_swap_kind(t_data *data, char set)
+void	ft_swap(t_data *data, char set)
 {
-	if(set == 'a')
+	if (set == 'a')
 	{
 		data->stack_a = ft_stackswap(data->stack_a);
 		ft_write_or_count(data, "sa");
@@ -75,7 +72,7 @@ void	ft_swap_kind(t_data *data, char set)
 		data->stack_b = ft_stackswap(data->stack_b);
 		ft_write_or_count(data, "sb");
 	}
-	else if ( set == 's')
+	else if (set == 's')
 	{
 		data->stack_a = ft_stackswap(data->stack_a);
 		data->stack_b = ft_stackswap(data->stack_b);

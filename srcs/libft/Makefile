@@ -68,7 +68,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@ar -rc $(NAME) $(OBJS)
-	@echo "${GREEN}COMPILED LIBFT${NC}"
+	@echo "${GREEN}LIBFT COMPILED${NC}"
 
 $(OBJS_DIR)%.o:%.c
 	@mkdir -p $(dir $@)
