@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simulation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emman <emman@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 11:07:32 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/19 17:58:55 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/19 20:35:22 by emman            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ft_simulation(t_data *data)
 		
 	i = 2;
 	bestcost = INT_MAX;
-	while(i != 10)
+	while(i != 10 /*ft_stacksize(data->stack_a) / 2*/)
 	{
 		fake = ft_fake_data(data);
 		fake->cost = 0;
@@ -76,6 +76,8 @@ void	ft_simulation(t_data *data)
 		}
 		i++;
 		data->base = bestbase;
+		ft_printf("%d\n", bestbase);
+		ft_printf("%d\n", bestcost);
 		ft_free_stack(fake->stack_a);
 		ft_free_stack(fake->stack_b);
 		free(fake);

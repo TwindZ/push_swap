@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emman <emman@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:13:16 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/19 18:14:52 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/19 20:29:25 by emman            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,18 @@ void	ft_radix(t_data *data, int base)
 	i = ft_stacksize(data->stack_a);
 	while(ft_sorted(data->stack_a) == FALSE)
 	{
-		// if(data->cost > 15000)
-		// 	return ;
-		while(data->stack_a != NULL /*&& ft_sorted(data->stack_a) == FALSE*/)
+		while(data->stack_a != NULL && ft_sorted(data->stack_a) == FALSE)
 		{
 			i = ft_stacksize(data->stack_a);
 			while(i)
 			{
+				if(div > (INT_MAX / 4))
+					return ;
+				ft_printf("index = %d / div = %d %% base = %d == mod = %d\n", data->stack_a->index, div, base, mod);
 				if((data->stack_a->index / div) % base == mod)
+				{
 					ft_push_b(data);
+				}
 				else
 					ft_rot_kind(data, 'a');
 				i--;
@@ -51,6 +54,8 @@ void	ft_radix(t_data *data, int base)
 			i = ft_stacksize(data->stack_b);
 			while(i)
 			{
+				if(div > (INT_MAX / 100))
+					return ;
 				if((data->stack_b->index / div) % base == mod)
 					ft_push_a(data);
 				else if(data->stack_b != NULL)
