@@ -6,12 +6,18 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:13:16 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/20 17:20:27 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/24 14:38:46 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
+/*The algorithm radix sorts elements based on their position in a given number
+system (radix) by distributing them into buckets according to their digit value
+at each position. The sorting process begins with the least significant digit
+and progresses to the most significant digit. The base for the algorithm is 
+determined by simulating radix with different base to find the one with the lowest
+move count.*/
 void	ft_rad_a(t_data *data, int base)
 {
 	int	i;

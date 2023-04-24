@@ -6,12 +6,14 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 15:20:43 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/20 17:21:06 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/24 15:15:36 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
+/*This function counts the number of movements made during the simulation and
+writes the movements when the final radix sort is executed.*/
 void	ft_write_or_count(t_data *data, char *movename)
 {
 	if (data->write_flag == 1)
@@ -20,6 +22,7 @@ void	ft_write_or_count(t_data *data, char *movename)
 		data->cost++;
 }
 
+/*This function dispatches which action needs to be done based on the character set.*/
 void	ft_rot(t_data *data, char set)
 {
 	if (set == 'a')
@@ -40,6 +43,7 @@ void	ft_rot(t_data *data, char set)
 	}
 }
 
+/*This function dispatches which action needs to be done based on the character set.*/
 void	ft_rrot(t_data *data, char set)
 {
 	if (set == 'a')
@@ -60,6 +64,7 @@ void	ft_rrot(t_data *data, char set)
 	}
 }
 
+/*This function dispatches which action needs to be done based on the character set.*/
 void	ft_swap(t_data *data, char set)
 {
 	if (set == 'a')

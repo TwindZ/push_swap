@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:27:13 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/20 17:42:23 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/24 15:31:40 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,9 @@ typedef struct s_data
 	int		div;
 }				t_data;
 
-int		ft_empty(char **arg);
 int		ft_find_smallest(t_data *data, char set);
 int		ft_find_biggest(t_data *data, char set);
 int		ft_inverted_sorted(t_stack *stack);
-int		ft_no_double(t_data *data);
-int		ft_only_number(char **arg, int i);
 int		ft_sorted(t_stack *stack);
 int		ft_stacksize(t_stack *stack);
 
@@ -63,11 +60,14 @@ t_stack	*ft_stackswap(t_stack *stack);
 t_stack	*ft_stacklast(t_stack *stack);
 
 void	ft_arg(t_data *data);
+void	ft_empty(char **arg);
 void	ft_free_stack(t_stack *stack);
 void	ft_index(t_data *data);
+void	ft_no_double(t_data *data);
+void	ft_only_number(char **arg, int i);
 void	ft_pushswap_free(int i);
-void	ft_push_a(t_data *data);
 void	ft_push_b(t_data *data);
+void	ft_push_a(t_data *data);
 void	ft_radix(t_data *data, int base);
 void	ft_rot(t_data *data, char set);
 void	ft_rrot(t_data *data, char set);

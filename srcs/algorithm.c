@@ -6,12 +6,13 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:50:10 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/20 16:55:24 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/24 13:01:17 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
+/*This algorithm sorts three numbers in a stack.*/
 void	ft_sort_3(t_data *data)
 {
 	t_stack	*temp;
@@ -39,6 +40,7 @@ void	ft_sort_3(t_data *data)
 	}
 }
 
+/*This algorithm sorts four numbers using two stacks.*/
 void	ft_sort_4(t_data *data)
 {
 	int	small;
@@ -55,6 +57,7 @@ void	ft_sort_4(t_data *data)
 	ft_push_a(data);
 }
 
+/*This algorithm sorts five numbers using two stacks.*/
 void	ft_sort_5(t_data *data)
 {
 	int	small;
@@ -84,6 +87,8 @@ void	ft_sort_5(t_data *data)
 	}
 }
 
+/*This algorithm sorts in the easiest way possible by finding the smallest
+number one by one.*/
 void	ft_simple_sort(t_data *data)
 {
 	while (data->stack_a != NULL && ft_sorted(data->stack_a) == FALSE)
@@ -94,7 +99,5 @@ void	ft_simple_sort(t_data *data)
 			ft_rot(data, 'a');
 	}
 	while (data->stack_b != NULL)
-	{
 		ft_push_a(data);
-	}
 }

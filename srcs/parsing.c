@@ -6,12 +6,14 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:57:08 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/20 17:17:27 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/24 14:15:59 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
+/*This function checks if the list indexes are sorted in ascending order. 
+Return 1 for TRUE*/
 int	ft_sorted(t_stack *stack)
 {
 	t_stack	*temp;
@@ -26,6 +28,8 @@ int	ft_sorted(t_stack *stack)
 	return (TRUE);
 }
 
+/*This function checks if the list indexes are sorted in descending order. 
+Return 1 for TRUE*/
 int	ft_inverted_sorted(t_stack *stack)
 {
 	t_stack	*temp;
@@ -40,7 +44,9 @@ int	ft_inverted_sorted(t_stack *stack)
 	return (TRUE);
 }
 
-int	ft_no_double(t_data *data)
+/*This function checks that there are no duplicates in the list, frees all 
+allocated memory, and quits if duplicates are found.*/
+void	ft_no_double(t_data *data)
 {
 	t_stack	*temp;
 	t_stack	*temp2;
@@ -53,27 +59,30 @@ int	ft_no_double(t_data *data)
 		while (temp2 != NULL)
 		{
 			if (temp->content == temp2->content)
-				return (FALSE);
+				ft_pushswap_free(1);
 			temp2 = temp2->next;
 		}
 		temp = temp->next;
 		if (temp != NULL)
 			temp2 = temp->next;
 	}
-	return (TRUE);
 }
 
-int	ft_empty(char **arg)
+/*This function checks for empty arguments, frees all allocated memory 
+and exits if an empty argument is found.*/
+void ft_empty(char **arg)
 {
 	int	i;
 
 	i = 0;
 	if (!arg[i])
 		ft_pushswap_free(1);
-	return (TRUE);
+	return ;
 }
 
-int	ft_only_number(char **arg, int i)
+/*This function checks that all characters are numeric, frees all allocated
+memory, and exits if a non-numeric character is found.*/
+void	ft_only_number(char **arg, int i)
 {
 	int	j;
 
@@ -94,5 +103,4 @@ int	ft_only_number(char **arg, int i)
 		i++;
 		j = 0;
 	}
-	return (TRUE);
 }

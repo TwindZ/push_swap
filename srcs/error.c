@@ -6,12 +6,14 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 16:36:38 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/20 16:27:20 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/24 12:38:34 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
+/*This function is used to free all elements of the program and can also 
+be used to display an error message when needed.*/
 void	ft_pushswap_free(int i)
 {
 	t_data	*data;
@@ -29,6 +31,7 @@ void	ft_pushswap_free(int i)
 	}
 }
 
+/*This function is used to free a linked list.*/
 void	ft_free_stack(t_stack *stack)
 {
 	t_stack	*temp;

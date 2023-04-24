@@ -6,12 +6,14 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 16:29:05 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/20 17:40:53 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/24 14:06:11 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
+/*This function initializes the main struct once and can be used to obtain a 
+pointer to the struct.*/
 t_data	*ft_init(int argc, char **argv)
 {
 	static t_data	*data;	
@@ -36,6 +38,9 @@ t_data	*ft_init(int argc, char **argv)
 	return (data);
 }
 
+/*This function brings the argument to the same base to initialize the stack.
+If the list of numbers is in quotes, it needs to be split, unlike a normal 
+argv list.*/
 void	ft_arg(t_data *data)
 {
 	if (data->argc == 2)
@@ -51,14 +56,17 @@ void	ft_arg(t_data *data)
 	}
 }
 
+/*This function converts the normalized arguments to a linked list while also
+parsing for empty strings, non-numeric characters and integers outside the 
+range of an int type.*/
 void	ft_stack(t_data *data, int i)
 {
 	long int	nb;
 	t_stack		*temp;
 
 	temp = NULL;
-	if (ft_empty(data->arg + i) == TRUE && ft_only_number(data->arg, i) == TRUE)
-	{
+	ft_only_number(data->arg, i);
+	ft_empty(data->arg + i);
 		while (data->arg[i])
 		{
 			nb = (long)ft_atoi(data->arg[i++]);
@@ -75,9 +83,12 @@ void	ft_stack(t_data *data, int i)
 			else
 				ft_pushswap_free(1);
 		}
-	}
+
 }
 
+/*This function indexes the stack from the smallest integer to the largest. 
+The sorting will be done by sorting the indexes rather than the contents 
+of the stack.*/
 void	ft_index(t_data *data)
 {
 	int		i;

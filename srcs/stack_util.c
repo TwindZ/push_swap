@@ -6,12 +6,13 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:21:06 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/20 17:23:21 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/24 10:20:57 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
+/*This funtion return the size of a chain list passed in parameter*/
 int	ft_stacksize(t_stack *stack)
 {
 	int	i;
@@ -27,6 +28,8 @@ int	ft_stacksize(t_stack *stack)
 	return (i);
 }
 
+/*This function searches for the biggest integer in the linked list
+selected by the set character <set> passed as a parameter.*/
 int	ft_find_biggest(t_data *data, char set)
 {
 	int		biggest;
@@ -46,6 +49,8 @@ int	ft_find_biggest(t_data *data, char set)
 	return (biggest);
 }
 
+/*This function searches for the smallest integer in the linked list
+selected by the set character <set> passed as a parameter.*/
 int	ft_find_smallest(t_data *data, char set)
 {
 	int		smallest;
@@ -65,6 +70,7 @@ int	ft_find_smallest(t_data *data, char set)
 	return (smallest);
 }
 
+/*This function creates a new integer in a new dynamically allocated node.*/
 t_stack	*ft_lstnew_int(int content)
 {
 	t_stack	*stack;
@@ -78,6 +84,7 @@ t_stack	*ft_lstnew_int(int content)
 	return (stack);
 }
 
+/*This function returns the address of the last node of a linked list passed as a parameter.*/
 t_stack	*ft_stacklast(t_stack *stack)
 {
 	if (!stack)

@@ -6,12 +6,14 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:27:10 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/20 17:05:10 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/24 14:47:39 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
+/*This function chooses the sorting algorithm based on the number of 
+integers to sort.*/
 void	ft_choose_algo(t_data *data)
 {
 	if (ft_stacksize(data->stack_a) == 3)
@@ -30,6 +32,10 @@ void	ft_choose_algo(t_data *data)
 	}
 }
 
+/*The program initializes the main struct, parses the data, assigns an index 
+to each number, chooses an algorithm based on the quantity of numbers, 
+sorts the numbers using the chosen algorithm, and frees all memory allocated 
+during execution.*/
 int	main(int argc, char **argv)
 {
 	t_data	*data;
@@ -40,10 +46,9 @@ int	main(int argc, char **argv)
 		if (data->stack_a == NULL && data->stacksize < 3)
 			ft_pushswap_free(1);
 		ft_index(data);
-		if (ft_no_double(data) == TRUE && ft_sorted(data->stack_a) == FALSE)
+		ft_no_double(data);
+		ft_sorted(data->stack_a);
 			ft_choose_algo(data);
-		else
-			ft_pushswap_free(1);
 		ft_pushswap_free(0);
 	}
 	return (0);

@@ -6,12 +6,13 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 11:07:32 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/20 17:22:49 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/24 15:29:34 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
+/*This function creates a simulated stack for the radix algorithm simulation.*/
 void	ft_fake_stack(t_data *fake, int i)
 {
 	t_stack	*temp;
@@ -33,6 +34,7 @@ void	ft_fake_stack(t_data *fake, int i)
 	}
 }
 
+/*Initialize the simulated stack*/
 t_data	*ft_fake_data(t_data *data)
 {
 	t_data	*fake;
@@ -50,6 +52,8 @@ t_data	*ft_fake_data(t_data *data)
 	return (fake);
 }
 
+/*This function simulates the action count for each base from 2 to 10 and keeps
+the best one and returning it.*/
 void	ft_simulation(t_data *data)
 {
 	t_data	*fake;
