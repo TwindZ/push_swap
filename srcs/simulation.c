@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 11:07:32 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/25 12:45:37 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/25 13:52:59 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ t_data	*ft_fake_data(t_data *data)
 }
 
 /*This function simulates the action count for each base from 2 to 10 and keeps
-the best one and returning it.*/
+the best one.*/
 void	ft_simulation(t_data *data)
 {
 	t_data	*fake;
