@@ -24,6 +24,9 @@ or
 
 The output of the program is a list of action to sort the list
 
+### Testing
+I used a visualizer to observe and optimize the behavior of the output. The visualizer can be found [here](https://github.com/o-reo/push_swap_visualizer).
+
 ## Action
 - _pa_	: push the top node of the stack b to the top of the stack a
 - _pb_	: push the top node of the stack a to the top of the stack b
@@ -36,6 +39,7 @@ The output of the program is a list of action to sort the list
 - _rra_	: rotate downward stack a, the last element go to the top position
 - _rrb_	: rotate downward stack b, the last element go to the top position
 - _rrr_	: rotate downward both stacks, the last elements go to the top position
+
 
 ## Algorithm Details
 
