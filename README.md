@@ -24,7 +24,7 @@ or
 
 The output of the program is a list of action to sort the list
 
-### Testing
+## Testing
 I used a visualizer to observe and optimize the behavior of the output. The visualizer can be found [here](https://github.com/o-reo/push_swap_visualizer).
 
 ## Action
