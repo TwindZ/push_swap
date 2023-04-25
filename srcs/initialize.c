@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 16:29:05 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/24 14:06:11 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/25 13:27:18 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ t_data	*ft_init(int argc, char **argv)
 		data->arg = NULL;
 		data->free_flag = 0;
 		data->write_flag = 1;
-		data->stacksize = 0;
 		data->cost = 0;
-		data->base = 3;
+		data->base = 2;
 		data->div = 1;
 		data->argc = argc;
 		data->argv = argv;
@@ -67,23 +66,22 @@ void	ft_stack(t_data *data, int i)
 	temp = NULL;
 	ft_only_number(data->arg, i);
 	ft_empty(data->arg + i);
-		while (data->arg[i])
+	while (data->arg[i])
+	{
+		nb = (long)ft_atoi(data->arg[i++]);
+		if (data->stack_a == NULL && nb <= INT_MAX && nb >= INT_MIN
+			&& ft_strlen(data->arg[i]) < 12)
+			data->stack_a = ft_lstnew_int(nb);
+		else if (nb <= INT_MAX && nb >= INT_MIN
+			&& ft_strlen(data->arg[i]) < 12)
 		{
-			nb = (long)ft_atoi(data->arg[i++]);
-			if (data->stack_a == NULL && nb <= INT_MAX && nb >= INT_MIN
-				&& ft_strlen(data->arg[i]) < 12)
-				data->stack_a = ft_lstnew_int(nb);
-			else if (nb <= INT_MAX && nb >= INT_MIN
-				&& ft_strlen(data->arg[i]) < 12)
-			{
-				temp = data->stack_a;
-				temp = ft_stacklast(temp);
-				temp->next = ft_lstnew_int(nb);
-			}
-			else
-				ft_pushswap_free(1);
+			temp = data->stack_a;
+			temp = ft_stacklast(temp);
+			temp->next = ft_lstnew_int(nb);
 		}
-
+		else
+			ft_pushswap_free(1);
+	}
 }
 
 /*This function indexes the stack from the smallest integer to the largest. 

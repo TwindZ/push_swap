@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:57:08 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/24 14:15:59 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/25 10:35:55 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	ft_no_double(t_data *data)
 
 /*This function checks for empty arguments, frees all allocated memory 
 and exits if an empty argument is found.*/
-void ft_empty(char **arg)
+void	ft_empty(char **arg)
 {
 	int	i;
 

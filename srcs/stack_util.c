@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:21:06 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/24 10:20:57 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/25 10:37:02 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ t_stack	*ft_lstnew_int(int content)
 	return (stack);
 }
 
-/*This function returns the address of the last node of a linked list passed as a parameter.*/
+/*This function returns the address of the last node of a linked list
+passed as a parameter.*/
 t_stack	*ft_stacklast(t_stack *stack)
 {
 	if (!stack)

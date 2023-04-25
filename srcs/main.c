@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:27:10 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/24 14:47:39 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/25 10:35:32 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,10 @@ int	main(int argc, char **argv)
 			ft_pushswap_free(1);
 		ft_index(data);
 		ft_no_double(data);
-		ft_sorted(data->stack_a);
+		if (ft_sorted(data->stack_a) == FALSE)
 			ft_choose_algo(data);
+		else
+			ft_pushswap_free(1);
 		ft_pushswap_free(0);
 	}
 	return (0);

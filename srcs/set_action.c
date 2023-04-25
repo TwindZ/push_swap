@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 15:20:43 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/24 15:15:36 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/25 10:36:12 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	ft_write_or_count(t_data *data, char *movename)
 		data->cost++;
 }
 
-/*This function dispatches which action needs to be done based on the character set.*/
+/*This function dispatches which action needs to be done based on the 
+character set.*/
 void	ft_rot(t_data *data, char set)
 {
 	if (set == 'a')
@@ -43,7 +44,8 @@ void	ft_rot(t_data *data, char set)
 	}
 }
 
-/*This function dispatches which action needs to be done based on the character set.*/
+/*This function dispatches which action needs to be done based on the 
+character set.*/
 void	ft_rrot(t_data *data, char set)
 {
 	if (set == 'a')
@@ -64,7 +66,8 @@ void	ft_rrot(t_data *data, char set)
 	}
 }
 
-/*This function dispatches which action needs to be done based on the character set.*/
+/*This function dispatches which action needs to be done based on the 
+character set.*/
 void	ft_swap(t_data *data, char set)
 {
 	if (set == 'a')
