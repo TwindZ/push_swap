@@ -6,7 +6,7 @@
 /*   By: emman <emman@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:19:49 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/02/23 10:10:54 by emman            ###   ########.fr       */
+/*   Updated: 2023/04/24 21:57:51 by emman            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ static char	*ft_line(char *stack)
 	return (line);
 }
 
+/*This function reads a line from a file descriptor and returns 
+it as a string. */
 char	*get_next_line(int fd)
 {
 	char		*line;

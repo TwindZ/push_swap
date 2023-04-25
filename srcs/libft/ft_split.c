@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emman <emman@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 10:36:24 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/02/27 17:27:51 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/24 21:50:33 by emman            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 
 static int	ft_wcount(char const *s, char c)
 {
@@ -59,6 +60,10 @@ static char	**ft_tab(char **tab, const char *s, char c)
 	return (tab);
 }
 
+/*This function splits a string into an array of substrings
+based on a delimiter. Returns a pointer to the resulting array. The function 
+uses dynamic memory allocation and can handle multiple delimiters. The last 
+element of the array is set to NULL. */
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;

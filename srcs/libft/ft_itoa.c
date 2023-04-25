@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emman <emman@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 08:57:49 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/01/18 16:14:42 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/24 21:31:47 by emman            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*The function ft_itoa() converts an integer to a dynamically allocated 
+string using malloc.*/
 static size_t	ft_size(int n)
 {
 	size_t	i;

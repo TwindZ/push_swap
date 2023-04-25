@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emman <emman@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 17:41:46 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/04 16:48:34 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/24 21:46:55 by emman            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*This function writes a string to the standard output. */
 int	ft_putstr(char *str)
 {
 	int	i;

@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_freeall.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emman <emman@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:43:06 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/02/20 12:43:47 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/24 21:26:24 by emman            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+
+/*This function frees all memory allocated for a two-dimensional 
+array using malloc.*/
 char	**ft_freeall(char **tab)
 {
 	int	i;
