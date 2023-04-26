@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emman <emman@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 16:29:05 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/25 13:27:18 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/25 20:36:19 by emman            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,19 +68,19 @@ void	ft_stack(t_data *data, int i)
 	ft_empty(data->arg + i);
 	while (data->arg[i])
 	{
-		nb = (long)ft_atoi(data->arg[i++]);
-		if (data->stack_a == NULL && nb <= INT_MAX && nb >= INT_MIN
-			&& ft_strlen(data->arg[i]) < 12)
+		nb = ft_atoi(data->arg[i]);
+		if(!(ft_strlen(data->arg[i]) > 0 && ft_strlen(data->arg[i]) < 12 
+			&& nb <= INT_MAX && nb >= INT_MIN))
+			ft_pushswap_free(1);
+		if (data->stack_a == NULL)
 			data->stack_a = ft_lstnew_int(nb);
-		else if (nb <= INT_MAX && nb >= INT_MIN
-			&& ft_strlen(data->arg[i]) < 12)
+		else
 		{
 			temp = data->stack_a;
 			temp = ft_stacklast(temp);
 			temp->next = ft_lstnew_int(nb);
 		}
-		else
-			ft_pushswap_free(1);
+		i++;
 	}
 }
 
