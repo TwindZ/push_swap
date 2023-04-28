@@ -53,8 +53,7 @@ SRC =	ft_isalnum.c	\
 		ft_freeall.c		\
 		
 OBJS_DIR = libft_objs/
-OBJS = $(SRC:%.c=%.o)
-OBJS := $(OBJS:%=$(OBJS_DIR)%)
+OBJS = $(SRC:%.c=$(OBJS_DIR)%.o)
 
 CFLAGS = -Wall -Wextra -Werror
 

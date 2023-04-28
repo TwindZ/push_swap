@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:27:13 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/24 15:31:40 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/28 17:23:52 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ t_stack	*ft_stackswap(t_stack *stack);
 t_stack	*ft_stacklast(t_stack *stack);
 
 void	ft_arg(t_data *data);
-void	ft_empty(char **arg);
+void	ft_empty(char **arg, int i);
 void	ft_free_stack(t_stack *stack);
 void	ft_index(t_data *data);
 void	ft_no_double(t_data *data);
@@ -74,6 +74,7 @@ void	ft_rrot(t_data *data, char set);
 void	ft_stack(t_data *data, int i);
 void	ft_simulation(t_data *data);
 void	ft_simple_sort(t_data *data);
+void	ft_sort_2(t_data *data);
 void	ft_sort_3(t_data *data);
 void	ft_sort_4(t_data *data);
 void	ft_sort_5(t_data *data);

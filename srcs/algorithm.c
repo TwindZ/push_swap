@@ -6,11 +6,17 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:50:10 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/24 13:01:17 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/28 14:37:32 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+
+void	ft_sort_2(t_data *data)
+{
+	if (data->stack_a->index > data->stack_a->next->index)
+		ft_swap(data, 'a');
+}
 
 /*This algorithm sorts three numbers in a stack.*/
 void	ft_sort_3(t_data *data)

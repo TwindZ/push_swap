@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:57:08 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/25 10:35:55 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/28 17:38:07 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,18 +66,6 @@ void	ft_no_double(t_data *data)
 		if (temp != NULL)
 			temp2 = temp->next;
 	}
-}
-
-/*This function checks for empty arguments, frees all allocated memory 
-and exits if an empty argument is found.*/
-void	ft_empty(char **arg)
-{
-	int	i;
-
-	i = 0;
-	if (!arg[i])
-		ft_pushswap_free(1);
-	return ;
 }
 
 /*This function checks that all characters are numeric, frees all allocated

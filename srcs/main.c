@@ -6,7 +6,7 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:27:10 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/25 10:35:32 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/04/28 17:34:12 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 integers to sort.*/
 void	ft_choose_algo(t_data *data)
 {
-	if (ft_stacksize(data->stack_a) == 3)
+	if (ft_stacksize(data->stack_a) == 2)
+		ft_sort_2(data);
+	else if (ft_stacksize(data->stack_a) == 3)
 		ft_sort_3(data);
 	else if (ft_stacksize(data->stack_a) == 4)
 		ft_sort_4(data);
@@ -43,14 +45,12 @@ int	main(int argc, char **argv)
 	if (argc > 1)
 	{
 		data = ft_init(argc, argv);
-		if (data->stack_a == NULL && data->stacksize < 3)
-			ft_pushswap_free(1);
+		if (data->stack_a == NULL)
+			ft_pushswap_free(0);
 		ft_index(data);
 		ft_no_double(data);
 		if (ft_sorted(data->stack_a) == FALSE)
 			ft_choose_algo(data);
-		else
-			ft_pushswap_free(1);
 		ft_pushswap_free(0);
 	}
 	return (0);

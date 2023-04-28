@@ -6,7 +6,7 @@
 #    By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 10:27:08 by emlamoth          #+#    #+#              #
-#    Updated: 2023/04/20 16:06:44 by emlamoth         ###   ########.fr        #
+#    Updated: 2023/04/28 13:23:48 by emlamoth         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,7 @@ LIBFT_DIR = ./srcs/libft/
 LIBFT = ./srcs/libft/libft.a
 SRCS_DIR = ./srcs/
 OBJS_DIR = ./srcs/push_swap_objs/
-OBJS = $(SRCS:%.c=%.o)
-OBJS := $(OBJS:$(SCRS_DIR)%=$(OBJS_DIR)%)
+OBJS = $(SRCS:$(SCRS_DIR)%.c=$(OBJS_DIR)%.o)
 
 NAME = push_swap
 

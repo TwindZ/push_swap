@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emman <emman@student.42.fr>                +#+  +:+       +#+        */
+/*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 16:29:05 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/25 20:36:19 by emman            ###   ########.fr       */
+/*   Updated: 2023/04/28 17:39:57 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,15 @@ void	ft_stack(t_data *data, int i)
 	long int	nb;
 	t_stack		*temp;
 
+	if (!(ft_strlen(data->arg[i]) > 0 && ft_strlen(data->arg[i]) < 12))
+		ft_pushswap_free(1);
 	temp = NULL;
 	ft_only_number(data->arg, i);
-	ft_empty(data->arg + i);
 	while (data->arg[i])
 	{
 		nb = ft_atoi(data->arg[i]);
-		if(!(ft_strlen(data->arg[i]) > 0 && ft_strlen(data->arg[i]) < 12 
-			&& nb <= INT_MAX && nb >= INT_MIN))
+		if (!(ft_strlen(data->arg[i]) > 0 && ft_strlen(data->arg[i]) < 12
+				&& nb <= INT_MAX && nb >= INT_MIN))
 			ft_pushswap_free(1);
 		if (data->stack_a == NULL)
 			data->stack_a = ft_lstnew_int(nb);
