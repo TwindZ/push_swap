@@ -6,12 +6,13 @@
 /*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:50:10 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/28 14:37:32 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/05/01 14:34:17 by emlamoth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
+/*This algorithm sorts two numbers in a stack.*/
 void	ft_sort_2(t_data *data)
 {
 	if (data->stack_a->index > data->stack_a->next->index)
