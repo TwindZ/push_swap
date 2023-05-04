@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simulation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emman <emman@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 11:07:32 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/25 13:52:59 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/05/03 20:54:57 by emman            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,18 @@ void	ft_fake_stack(t_data *fake, int i)
 		if (fake->stack_a == NULL)
 		{
 			fake->stack_a = ft_lstnew_int(i);
-			i--;
+			if (!fake->stack_a)
+				ft_simulation_free(fake, 1);
 		}
 		else
 		{			
 			temp = fake->stack_a;
 			temp = ft_stacklast(temp);
 			temp->next = ft_lstnew_int(i);
-			i--;
+			if (!temp->next)
+				ft_simulation_free(fake, 1);
 		}
+		i--;
 	}
 }
 
@@ -40,6 +43,8 @@ t_data	*ft_fake_data(t_data *data)
 	t_data	*fake;
 
 	fake = malloc(sizeof(t_data));
+	if (!fake)
+		ft_pushswap_free(1);
 	fake->stack_a = NULL;
 	fake->stack_b = NULL;
 	fake->write_flag = 0;
@@ -48,6 +53,8 @@ t_data	*ft_fake_data(t_data *data)
 	fake->base = 2;
 	fake->stacksize = ft_stacksize(data->stack_a);
 	ft_fake_stack(fake, fake->stacksize);
+	if (!fake)
+		ft_pushswap_free(1);
 	ft_index(fake);
 	return (fake);
 }
@@ -72,8 +79,6 @@ void	ft_simulation(t_data *data)
 			data->base = i;
 		}
 		i++;
-		ft_free_stack(fake->stack_a);
-		ft_free_stack(fake->stack_b);
-		free(fake);
+		ft_simulation_free(fake, 0);
 	}	
 }

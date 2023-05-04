@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emman <emman@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 16:29:05 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/28 17:39:57 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/05/03 20:13:22 by emman            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ t_data	*ft_init(int argc, char **argv)
 	if (!data)
 	{
 		data = malloc(sizeof(t_data));
+		if (!data)
+			return(NULL);
 		data->stack_a = NULL;
 		data->stack_b = NULL;
 		data->arg = NULL;
@@ -32,6 +34,8 @@ t_data	*ft_init(int argc, char **argv)
 		data->argc = argc;
 		data->argv = argv;
 		ft_arg(data);
+		if(!data->arg)
+			ft_pushswap_free(1);
 		data->stacksize = ft_stacksize(data->stack_a);
 	}
 	return (data);
@@ -45,6 +49,8 @@ void	ft_arg(t_data *data)
 	if (data->argc == 2)
 	{
 		data->arg = ft_split(data->argv[1], ' ');
+		if (!data->arg)
+			ft_pushswap_free(1);
 		data->free_flag = 1;
 		ft_stack(data, 0);
 	}
@@ -74,12 +80,18 @@ void	ft_stack(t_data *data, int i)
 				&& nb <= INT_MAX && nb >= INT_MIN))
 			ft_pushswap_free(1);
 		if (data->stack_a == NULL)
+		{
 			data->stack_a = ft_lstnew_int(nb);
+			if (!data->stack_a)
+				ft_pushswap_free(1);
+		}
 		else
 		{
 			temp = data->stack_a;
 			temp = ft_stacklast(temp);
 			temp->next = ft_lstnew_int(nb);
+			if (!temp->next)
+				ft_pushswap_free(1);
 		}
 		i++;
 	}

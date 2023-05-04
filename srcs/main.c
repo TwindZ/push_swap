@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emman <emman@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:27:10 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/28 17:34:12 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/05/03 20:35:08 by emman            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int	main(int argc, char **argv)
 	if (argc > 1)
 	{
 		data = ft_init(argc, argv);
-		if (data->stack_a == NULL)
-			ft_pushswap_free(0);
+		if (!data)
+			exit(EXIT_FAILURE);
 		ft_index(data);
 		ft_no_double(data);
 		if (ft_sorted(data->stack_a) == FALSE)

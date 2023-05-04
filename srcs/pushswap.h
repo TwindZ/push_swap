@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emlamoth <emlamoth@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emman <emman@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:27:13 by emlamoth          #+#    #+#             */
-/*   Updated: 2023/04/28 17:23:52 by emlamoth         ###   ########.fr       */
+/*   Updated: 2023/05/03 20:53:03 by emman            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ void	ft_sort_4(t_data *data);
 void	ft_sort_5(t_data *data);
 void	ft_swap(t_data *data, char set);
 void	ft_write_or_count(t_data *data, char *movename);
+void	ft_simulation_free(t_data *fake, int i);
 
 #endif
